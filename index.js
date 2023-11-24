@@ -60,6 +60,8 @@ function startGame(data) {
   const combo = document.getElementById('streak');
   combo.innerText = 'STREAK: ' + streak;
 
+  const answer = document.getElementById('answer');
+
   lomake.addEventListener('submit', async function(event) {
     event.preventDefault();
 
@@ -72,7 +74,7 @@ function startGame(data) {
       right_guess++;
       streak++;
       combo.innerText = 'STREAK: ' + streak;
-      console.log('Subtype was rgiht! Right guess amount is: ', right_guess);
+      answer.innerText = hakusana + ' Was Correct! ';
 
       const index = filteredComponents.indexOf(hakusana.toUpperCase());
       if (index > -1) {
@@ -86,8 +88,17 @@ function startGame(data) {
 
         location.reload();
       }
+
+      else {
+        answer.innerText = `${hakusana} Was Correct! You have ${filteredComponents.length} subtypes left.`;
+      }
+
     } else {
       streak = 0;
+      setStreak(streak);
+      combo.innerText = 'STREAK: ' + streak;
+      answer.innerText = hakusana + ' Was Wrong :(';
+
     }
 
     document.querySelector('#query').value = '';
@@ -105,7 +116,7 @@ function set_html(data) {
   image.alt = `Picture of ${data.name}`;
 
   const commander_flavor = document.getElementById('commander_flavor');
-  commander_flavor.innerText = 'Flavor text: ' + data.flavor_text
+  commander_flavor.innerText = 'Flavor text: ' + data.flavor_text;
 }
 
 function getStreak() {

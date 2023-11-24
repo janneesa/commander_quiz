@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    background: #333;
+    color: white;
+    padding: 1rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+#laatikko {
+    background: url('/empty_card.jpg') center;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    height: 60rem;
+    margin-top: 1rem;
+    color: #fff;
+    text-align: center;
+    position: relative; /* Set position relative for positioning child elements */
+}
+
+h2 {
+    position: absolute; /* Set position absolute for fine-tuning */
+    top: 3.9rem; /* Adjust the top position as needed */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    color: black;
+}
+
+form {
+    margin-top: 14rem;
+    position: absolute; /* Set position absolute for fine-tuning */
+    top: 29rem; /* Adjust the top position as needed */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+}
+
+input[type="text"], input[type="submit"] {
+    padding: 10px;
+}
+
+#commander_image {
+    max-width: 100%;
+    height: auto;
+    position: absolute; /* Set position absolute for fine-tuning */
+    top: 7.08rem; /* Adjust the top position as needed */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    width: 36rem;
+
+}
+
+#commander_flavor {
+    position: absolute; /* Set position absolute for fine-tuning */
+    top: 50rem; /* Adjust the top position as needed */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    color: black;
+}
