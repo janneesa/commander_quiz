@@ -37,6 +37,14 @@ header {
 
 /* More header options here...*/
 
+header a {
+    color: white;
+}
+
+header a:hover {
+    color: darkorange;
+}
+
 
 /* Game box */
 #laatikko {
@@ -57,6 +65,15 @@ h2 {
 
 }
 
+#commander_name_container {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    top: 4.3rem;
+    max-width: 38rem;
+}
+
 #commander_image_container {
     max-width: 38rem;
     max-height: 28rem;
@@ -74,12 +91,31 @@ h2 {
 }
 
 #answer_container {
-    flex-grow: 1; /* Takes up all available space */
-    flex-shrink: 0; /* Does not shrink to fit content */
+    position: absolute;
+    transform: translateX(-45%);
+    width: 40rem; /* Adjust as needed */
+    text-align: left;
+    color: black;
+    font-size: large;
+    top: 0.3rem;
 }
 
 #streak_container {
-    /* Optional: Add any styling for streak_container */
+    position: absolute;
+    transform: translateX(20%);
+    width: 40rem;
+    text-align: left;
+    color: black;
+    font-size: x-large;
+}
+
+form {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    top: 38.6rem;
+    width: 100%;
 }
 
 input[type="text"] {
@@ -90,8 +126,7 @@ input[type="text"] {
     margin-bottom: 1rem; /* Add some space below the input field */
     width: 15rem; /* Make the input field full-width */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for a modern look */
-    position: absolute;
-    top: 60rem;
+
 }
 
 input[type="submit"] {
@@ -103,8 +138,31 @@ input[type="submit"] {
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease; /* Add a smooth transition effect */
+
 }
 
 input[type="submit"]:hover {
     background-color: #555; /* Change the background color on hover */
 }
+
+#commander_flavor {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    top: 40rem;
+    max-width: 80%;
+    font-size: larger;
+}
+
+#life {
+    position: absolute;
+    transform: translateX(82%);
+    width: 40rem;
+    text-align: left;
+    color: black;
+    top: 67.5rem;
+    font-size: xx-large;
+}
+
+
