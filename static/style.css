@@ -1,0 +1,207 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Goudy';
+    src: url("/static/SortsMillGoudy-Regular.ttf") format('truetype');
+}
+
+body {
+    font-family: 'Goudy', sans-serif;
+    margin: 0;
+    background-image: url("/static/tausta.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #333;
+    color: white;
+    padding: 1rem;
+}
+
+nav {
+    margin-top: 1rem; /* Optionally, add some space between the paragraph and the navigation link */
+}
+
+header h1 {
+    background: linear-gradient(45deg, violet, indigo, blue, green, yellow, orange, red);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 1rem; /* Add some space between the links if needed */
+}
+
+#laatikko {
+    background: url('/static/empty_card.jpg') center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 60rem;
+    margin-top: 1rem;
+    color: #fff;
+    text-align: center;
+    position: relative;
+}
+
+
+h2 {
+    position: absolute;
+    top: 3.9rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: black;
+}
+
+form {
+    margin-top: 14rem;
+    position: absolute;
+    top: 25rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+input[type="text"] {
+    padding: 15px; /* Increase padding for a larger input field */
+    font-size: 16px; /* Adjust font size */
+    border: 2px solid #333; /* Add a border */
+    border-radius: 8px; /* Add border-radius for rounded corners */
+    margin-bottom: 1rem; /* Add some space below the input field */
+    width: 100%; /* Make the input field full-width */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for a modern look */
+}
+
+input[type="submit"] {
+    padding: 15px;
+    font-size: 16px;
+    border: 2px solid #333;
+    border-radius: 8px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add a smooth transition effect */
+}
+
+input[type="submit"]:hover {
+    background-color: #555; /* Change the background color on hover */
+}
+
+#commander_image_container {
+    max-width: 36rem; /* Set the maximum width to the desired value */
+    max-height: 26.4rem;
+    overflow: hidden;
+    position: absolute;
+    top: 7.08rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#commander_image {
+    height: auto;
+    display: block;
+}
+
+
+#answer {
+    position: absolute;
+    top: 34.8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40rem; /* Adjust as needed */
+    margin-left: 3.5rem; /* Half of the width */
+    text-align: left;
+    color: black;
+}
+
+
+#streak {
+    position: absolute;
+    top: 34.8rem;
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%);
+    margin-left: 13rem; /* Adjust as needed */
+    color: black;
+}
+
+#commander_flavor {
+    position: absolute;
+    top: 50rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: black;
+    margin-left: 0.5rem;
+    margin-right: 10rem;
+}
+
+#life {
+    position: absolute;
+    top: 54.7rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: black;
+    margin-left: 14.3rem;
+}
+
+
+/* Media Query for smaller screens, e.g., phones */
+@media only screen and (max-width: 600px) {
+
+    * {
+        font-size: small;
+    }
+
+    body {
+        font-family: 'Goudy', sans-serif;
+        margin: 0;
+        background-image: url("/static/empty_card.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+
+
+    }
+
+    #laatikko {
+        height: auto; /* Adjust height as needed for smaller screens */
+    }
+
+    #commander_image_container {
+        max-width: 100%;
+        max-height: 100%;
+        margin-top: 1rem; /* Adjust margin for spacing on smaller screens */
+    }
+
+    #answer {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    #streak {
+        margin-left: 0;
+    }
+
+    #commander_flavor {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #life {
+        margin-left: 0;
+    }
+}

@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="index.js" defer></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="static/style.css">
     <title>Commander quesser</title>
 </head>
 
@@ -22,16 +22,34 @@
 </header>
 
 <div id="laatikko">
-    <h2 id="commander_name"></h2>
-    <img id="commander_image">
-    <p id="commander_oracle"></p>
-    <p id="answer"></p>
-    <h3 id="streak"></h3>
-    <p id="commander_flavor"></p>
+
+    <div id="commander_name_container">
+        <h2 id="commander_name"></h2>
+    </div>
+
+    <div id="commander_image_container">
+        <img id="commander_image">
+    </div>
+
+    <div id="type_line">
+        <div id="answer_container">
+            <p id="answer"></p>
+        </div>
+
+        <div id="streak_container">
+            <h3 id="streak"></h3>
+        </div>
+    </div>
+
     <form>
         <input id="query" name="q" type="text" placeholder="Check 1 subtype at a time">
         <input type="submit" value="Check">
     </form>
+
+    <p id="commander_flavor"></p>
+    <p id="life"></p>
+
+
 </div>
 
 </body>

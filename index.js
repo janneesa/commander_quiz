@@ -45,68 +45,101 @@ function startGame(data) {
   console.log('Card Name:', card_name);
   console.log('Card Art:', card_art);
   console.log('Card Type Components:', filteredComponents);
-  console.log('Mana Cost:', mana_cost);
-  console.log('Power/Toughness:', `${power}/${toughness}`);
 
-  // Call other functions or write additional game logic here
 
+  // Set html page
   set_html(data);
 
+
+  // Set game parameters
   let guess_amont = 0;
   let right_guess = 0;
-  let streak = getStreak();
-  const subtype_amount = filteredComponents.length;
 
+  let streak = getStreak();
   const combo = document.getElementById('streak');
   combo.innerText = 'STREAK: ' + streak;
 
+  let life = get_life()
+
+  const hp = document.getElementById('life')
+  hp.innerText = 'Life: ' + life
+  set_life(life)
+
   const answer = document.getElementById('answer');
 
+
+  // Game logic inside
   lomake.addEventListener('submit', async function(event) {
+    // Stop Form sending
     event.preventDefault();
 
+    // Add a guess amount by 1
     guess_amont++;
     console.log('guess_amount is ', guess_amont);
 
-    const hakusana = document.querySelector('#query').value;
+    // Get player guess
+    const player_guess = document.querySelector('#query').value;
 
-    if (filteredComponents.includes(hakusana.toUpperCase())) {
+    // Check if guess is correct
+    if (filteredComponents.includes(player_guess.toUpperCase())) {
       right_guess++;
       streak++;
       combo.innerText = 'STREAK: ' + streak;
-      answer.innerText = hakusana + ' Was Correct! ';
+      answer.innerText = player_guess + ' Was Correct! ';
 
-      const index = filteredComponents.indexOf(hakusana.toUpperCase());
+      // Delete guessed subtype from the original list
+      const index = filteredComponents.indexOf(player_guess.toUpperCase());
       if (index > -1) {
         filteredComponents.splice(index, 1); // 2nd parameter means remove one item only
         console.log(filteredComponents);
       }
+
+      // If list is empty. PLayer wins
       if (filteredComponents.length === 0) {
         console.log('voitto');
+        // Add 1 life from victory
+        life++
+
         alert('YOU WIN');
         setStreak(streak);
+        set_life(life)
 
         location.reload();
       }
 
+      // If subtypes remain. Guessing continues
       else {
-        answer.innerText = `${hakusana} Was Correct! You have ${filteredComponents.length} subtypes left.`;
+        answer.innerText = `${player_guess} Was Correct! You have ${filteredComponents.length} subtypes left.`;
       }
 
+      // Wrong guess resets streak and lose 1 life
     } else {
+      life = life -1
+      set_life(life)
       streak = 0;
       setStreak(streak);
+
+      hp.innerText = 'Life: ' + life
       combo.innerText = 'STREAK: ' + streak;
-      answer.innerText = hakusana + ' Was Wrong :(';
+      answer.innerText = player_guess + ' Was Wrong :(';
+
+      // If life < 0 then game reset and session storage is cleared
+      if (life < 1){
+        alert('Game over')
+        sessionStorage.clear();
+        location.reload();
+      }
 
     }
 
+    // Empty typing field
     document.querySelector('#query').value = '';
 
   });
-
 }
 
+
+// Sets html elements
 function set_html(data) {
   const name = document.getElementById('commander_name');
   name.innerText = data.name;
@@ -119,15 +152,29 @@ function set_html(data) {
   commander_flavor.innerText = 'Flavor text: ' + data.flavor_text;
 }
 
+// Get streak or make new one
 function getStreak() {
   const storedStreak = sessionStorage.getItem('streak');
   return storedStreak ? parseInt(storedStreak) : 0;
 }
 
-// Function to set streak in browser storage
+// Set streak in session storage
 function setStreak(streak) {
   sessionStorage.setItem('streak', streak.toString());
 }
+
+// Get life or make new one
+function get_life() {
+  const stored_life = sessionStorage.getItem('life');
+  return stored_life ? parseInt(stored_life) : 5;
+}
+
+// Set life in session storage
+function set_life(life) {
+  sessionStorage.setItem('life', life.toString());
+}
+
+
 
 // MAIN
 fetchData(startGame);

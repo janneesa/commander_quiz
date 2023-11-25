@@ -1,0 +1,110 @@
+@font-face {
+    font-family: 'Goudy';
+    src: url("/static/SortsMillGoudy-Regular.ttf") format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Goudy', Arial, sans-serif;
+    margin: 0; /* Resetting margin */
+    padding: 0;
+    background-image: url('/static/tausta.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #333;
+    color: black;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #333;
+    color: white;
+    padding: 1rem;
+    margin: 0;
+}
+
+/* More header options here...*/
+
+
+/* Game box */
+#laatikko {
+    margin: 2rem;
+    height: 1026px;
+    width: 735px;
+    background-image: url("/static/empty_card.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 3rem;
+}
+
+h2 {
+
+}
+
+#commander_image_container {
+    max-width: 38rem;
+    max-height: 28rem;
+    overflow: hidden;
+    position: absolute;
+    top: 17.35rem;
+}
+
+
+#type_line {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    top: 34.8rem;
+}
+
+#answer_container {
+    flex-grow: 1; /* Takes up all available space */
+    flex-shrink: 0; /* Does not shrink to fit content */
+}
+
+#streak_container {
+    /* Optional: Add any styling for streak_container */
+}
+
+input[type="text"] {
+    padding: 15px; /* Increase padding for a larger input field */
+    font-size: 16px; /* Adjust font size */
+    border: 2px solid #333; /* Add a border */
+    border-radius: 8px; /* Add border-radius for rounded corners */
+    margin-bottom: 1rem; /* Add some space below the input field */
+    width: 15rem; /* Make the input field full-width */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for a modern look */
+    position: absolute;
+    top: 60rem;
+}
+
+input[type="submit"] {
+    padding: 15px;
+    font-size: 16px;
+    border: 2px solid #333;
+    border-radius: 8px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add a smooth transition effect */
+}
+
+input[type="submit"]:hover {
+    background-color: #555; /* Change the background color on hover */
+}
